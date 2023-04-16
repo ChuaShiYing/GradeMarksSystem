@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Grading System</string>
+    <string name="courseText">Courses</string>
+    <string name="scoreText">Score</string>
+    <string name="contactButtonText">Contact Department of Exam</string>
+    <string name="gradeButtonText">Grade</string>
+    <string name="resultText">The result is %s</string>
+    <string-array name="coursesArray">
+        <item>Diploma in Computer Science</item>
+        <item>Diploma in IT</item>
+        <item>Diploma in Data Science</item>
+        <item>Bachelor in Software Engineering</item>
+    </string-array>
+</resources>
