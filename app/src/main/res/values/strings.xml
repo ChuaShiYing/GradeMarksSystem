@@ -5,10 +5,10 @@
     <string name="contactButtonText">Contact Department of Exam</string>
     <string name="gradeButtonText">Grade</string>
     <string name="resultText">The result is %s</string>
+    <string name="nameText">Name</string>
     <string-array name="coursesArray">
-        <item>Diploma in Computer Science</item>
-        <item>Diploma in IT</item>
-        <item>Diploma in Data Science</item>
-        <item>Bachelor in Software Engineering</item>
+        <item>BAIT2073</item>
+        <item>AACS2034</item>
+        <item>AMCS9076</item>
     </string-array>
 </resources>

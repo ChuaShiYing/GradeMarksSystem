@@ -23,11 +23,24 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         spinnerCourse.onItemSelectedListener = this
 
-        spinnerCourse.adapter = ArrayAdapter.createFromResource(
+        //this use the simple spinner drop down
+        /*spinnerCourse.adapter = ArrayAdapter.createFromResource(
             this,
             R.array.coursesArray,
             android.R.layout.simple_spinner_dropdown_item
-        )
+        )*/
+
+
+        //this is used for custom spinner layout
+        spinnerCourse.adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.coursesArray,
+            R.layout.spinner_item
+        ).also{
+            it.setDropDownViewResource(R.layout.spinner_dropdown)
+        }
+
+
 
         //create grade button click listener
         val gradeButton = findViewById<Button>(R.id.gradeButton)
@@ -66,16 +79,20 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
-        
+
     }
 
-    private fun contactDE():Intent{
+    private fun contactDE(): Intent {
         val emailIntent = Intent(Intent.ACTION_SENDTO)
         emailIntent.data = Uri.parse("mailto:")
         emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("departmentOfExam@gmail.com"));
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Course : ${findViewById<Spinner>(R.id.courseSpinner).selectedItem}\n"
-                + "Score : ${findViewById<EditText>(R.id.scoreInput).text}\n"
-                + "Grade : ${findViewById<TextView>(R.id.resultText).text}")
+        emailIntent.putExtra(
+            Intent.EXTRA_TEXT,
+            "Name : ${findViewById<EditText>(R.id.nameInput).text}\n"
+                    + "Course : ${findViewById<Spinner>(R.id.courseSpinner).selectedItem}\n"
+                    + "Score : ${findViewById<EditText>(R.id.scoreInput).text}\n"
+                    + "Grade : ${findViewById<TextView>(R.id.resultText).text}"
+        )
 
         return emailIntent
     }
